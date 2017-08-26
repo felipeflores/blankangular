@@ -1,4 +1,4 @@
 angular.module('app').controller('homeController', function($scope) {
-    vm = this;
-    console.log("teste");
+    var vm = this;
+    vm.title = 'Customers';
 });

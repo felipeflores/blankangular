@@ -1,9 +1,22 @@
 angular.module('app').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
     
-    $stateProvider.state('home', {
-		url: '/',
-		templateUrl: 'views/home/main.html',
-		controller: 'homeController'
-	});
+		$stateProvider
+		.state('main', {
+			abstract: true,
+			templateUrl: 'views/main.html'
+		})
+		.state('main.home', {
+			url: '/',
+			views: {	
+				"" : {
+					templateUrl: 'views/home/home.html',
+					controller: 'homeController',
+					controllerAs: 'vm'
+				},				
+				"info" : { 
+					template: "detalhe"
+				},    
+			}
+		});
 });
